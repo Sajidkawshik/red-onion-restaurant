@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
+import Item from './../Item/Item';
 import menu from '../../menu';
-import Item from '../Item/Item';
-import './Breakfast.css'
-
-const Breakfast = () => {
+const Dinner = () => {
     
-    const bf= menu.filter(items=>items.category==="breakfast");
-    const{items, setItems} = useState(0);
+        const dn= menu.filter(items=>items.category==="dinner");
+        const{items, setItems} = useState(0)
     return (
         <div className="breakfast">
             <div className="row">
                                 
                     {
-                        bf.map(items=><Item
+                        dn.map(items=><Item
                         id={items.id}
                         name={items.name}
                         description={items.description}
@@ -24,7 +22,8 @@ const Breakfast = () => {
             </div>
         </div>
         
+   
     );
 };
 
-export default Breakfast;
+export default Dinner;
