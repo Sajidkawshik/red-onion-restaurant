@@ -1,0 +1,29 @@
+.totalLook{
+    margin-top: 100px;    
+    display: flex;
+}
+
+.itemDetails{
+    margin-left: 150px;
+    padding-right: 10px;
+    
+   
+}
+
+.itemDetails img{
+    height: 500px;
+    width: 450px;
+}
+
+.itemDetails .card-body{
+    display: none;
+}
+
+
+.description{
+    margin-left: 60px;
+    margin-top: 80px;
+}
+
+
+

@@ -12,12 +12,14 @@ import {
 } from "react-router-dom";
 import Lunch from './Components/Item/Lunch/Lunch';
 import Dinner from './Components/Dinner/Dinner';
+import ItemDetails from './Components/ItemDetails/ItemDetails';
 
 function App() {
   return (
     <div>
       <Header></Header>  
       <SearchBanner></SearchBanner>
+      
 
       <Router>
         <Switch>
@@ -31,6 +33,10 @@ function App() {
 
           <Route path="/dinner">
             <Dinner></Dinner>
+          </Route>
+
+          <Route path="/:id">
+              <ItemDetails></ItemDetails>
           </Route>
 
         </Switch>

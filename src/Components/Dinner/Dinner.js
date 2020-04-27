@@ -15,7 +15,8 @@ const Dinner = () => {
                         name={items.name}
                         description={items.description}
                         price={items.price}
-                        image={items.image}>
+                        image={items.image}
+                        item={items}>
                         </Item>)
                     }   
                             
