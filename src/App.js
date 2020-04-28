@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './Components/Header/Header';
 import SearchBanner from './Components/SearchBanner/SearchBanner';
-import BreakFast from './Components/Breakfast/Breakfast';
+import ShowingMenu from './Components/ShowingMenu/ShowingMenu';
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,20 +25,14 @@ function App() {
 
       <Router>
         <Switch>
-          <Route path="/breakfast">
-            <BreakFast></BreakFast>
+          <Route path="/menu">
+            <ShowingMenu></ShowingMenu>
             
           </Route>
 
-          <Route path="/lunch">
-            <Lunch></Lunch>
-           
-
-          </Route>
-
-          <Route path="/dinner">
-            <Dinner></Dinner>
-          </Route>
+          <Route exact path="/">
+              <ShowingMenu></ShowingMenu>
+            </Route>
 
           <Route path="/review">
               <Review></Review>

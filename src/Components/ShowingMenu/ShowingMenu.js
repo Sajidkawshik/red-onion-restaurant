@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import menu from '../../menu';
 import Item from '../Item/Item';
-import './Breakfast.css'
+import './ShowingMenu.css'
 import Cart from '../Cart/Cart';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import { Link } from 'react-router-dom';
-const Breakfast = () => {
+const ShowingMenu = () => {
     
-    const bf= menu.filter(items=>items.category==="breakfast");
-    const{items, setItems} = useState(0);
+    const[item, setItems] = useState([]);
     const [cart, setCart] = useState([]);
+
+    const menuShow=(option)=>{
+        console.log(option);
+        let menuList= menu.filter(items=>items.category===option);
+        setItems(menuList);
+    }
+    
 
     useEffect (()=>{
 
@@ -30,7 +36,7 @@ const Breakfast = () => {
         const sameItem = cart.find(pd=>pd.id===tobedAddedId);
         let count = 1;
         let newCart;
-        //bujhi nai
+      
         if(sameItem){
             count  = sameItem.quantity +1 ;
             sameItem.quantity = count;
@@ -49,10 +55,15 @@ const Breakfast = () => {
     
     return (
         <div className="breakfast">
+            <div className="menu-section">
+                <p onClick={()=>{menuShow("breakfast")}}>Breakfast</p>
+                <p onClick={()=>{menuShow("lunch")}}>Lunch</p>
+                <p onClick={()=>{menuShow("dinner")}}>Dinner</p>
+            </div>
+
             <div className="row">
-                                
-                    {
-                        bf.map(items=><Item
+                    {                       
+                        item.map(items=><Item
                         key={items.id}
                         id={items.id}
                         name={items.name}
@@ -87,4 +98,4 @@ const Breakfast = () => {
     );
 };
 
-export default Breakfast;
+export default ShowingMenu;

@@ -38,3 +38,23 @@
     display: flex;
     justify-content: center;
 }
+
+.menu-section{
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bolder;
+    
+}
+
+.menu-section p{
+    margin-right: 30px;
+    padding: 5px 8px;
+}
+
+.menu-section p:hover{
+    background-color: crimson;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;    
+}
