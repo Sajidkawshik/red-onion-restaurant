@@ -13,6 +13,8 @@ import {
 import Lunch from './Components/Item/Lunch/Lunch';
 import Dinner from './Components/Dinner/Dinner';
 import ItemDetails from './Components/ItemDetails/ItemDetails';
+import ReviewOrderBtn from './Components/ReviewOrderBtn/ReviewOrderBtn';
+import Review from './Components/Review/Review';
 
 function App() {
   return (
@@ -25,19 +27,28 @@ function App() {
         <Switch>
           <Route path="/breakfast">
             <BreakFast></BreakFast>
+            
           </Route>
 
           <Route path="/lunch">
             <Lunch></Lunch>
+           
+
           </Route>
 
           <Route path="/dinner">
             <Dinner></Dinner>
           </Route>
 
+          <Route path="/review">
+              <Review></Review>
+          </Route>
+
           <Route path="/:id">
               <ItemDetails></ItemDetails>
           </Route>
+
+         
 
         </Switch>
       </Router>

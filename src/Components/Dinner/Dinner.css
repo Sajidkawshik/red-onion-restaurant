@@ -3,3 +3,24 @@
     margin-right: 50px;
     margin-left: 50px;
 }
+
+.reviewOrderBtn{
+    background-color: crimson;
+    color: white;
+    width: 150px;
+    height: 40px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 30px;
+  
+}
+
+.reviewOrderBtn:hover{
+    background-color: rgb(165, 14, 44);
+}
+
+.wrap{
+    display: flex;
+    justify-content: center;
+}
