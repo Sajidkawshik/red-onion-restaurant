@@ -3,12 +3,14 @@ import menu from '../../menu';
 import Item from '../Item/Item';
 import './ShowingMenu.css'
 import Cart from '../Cart/Cart';
-import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
+import { addToDatabaseCart, getDatabaseCart,removeFromDatabaseCart } from '../../utilities/databaseManager';
 import { Link } from 'react-router-dom';
 const ShowingMenu = () => {
     
     const[item, setItems] = useState([]);
     const [cart, setCart] = useState([]);
+
+    
 
     const menuShow=(option)=>{
         console.log(option);
@@ -27,6 +29,8 @@ const ShowingMenu = () => {
             return product ; 
         })
         setCart(previousCart);
+        let defaultMenu = menu.filter(items=>items.category==="breakfast");
+        setItems(defaultMenu);
 
     }, [])
 
@@ -51,6 +55,33 @@ const ShowingMenu = () => {
         setCart(newCart);    
         addToDatabaseCart(item.id,count) ;
     }
+
+    const handleMinusProduct = (item) =>{
+
+        const tobeMinusId = item.id;
+        const tobeMinusIdItem = cart.find(pd=>pd.id===tobeMinusId)
+        let count ;
+        let newCart;
+
+        if(tobeMinusIdItem){
+            if(tobeMinusIdItem.quantity===1)
+            {
+                newCart = cart.filter(pd => pd.id !== tobeMinusId);    
+                removeFromDatabaseCart(tobeMinusId);
+            }
+            
+            else if(tobeMinusIdItem.quantity>0){
+                count = tobeMinusIdItem.quantity-1;
+                tobeMinusIdItem.quantity = count;
+                const others = cart.filter(pd=>pd.id!==tobeMinusId)
+                newCart = [...others,tobeMinusIdItem];                
+                addToDatabaseCart(item.id,count);
+            }
+            setCart(newCart);
+        }
+        
+
+    }
     
     
     return (
@@ -71,7 +102,9 @@ const ShowingMenu = () => {
                         price={items.price}
                         image={items.image}
                         item={items}
-                        handleAddItem={handleAddProduct}>
+                        handleAddItem={handleAddProduct}
+                        handleMinusItem={handleMinusProduct}
+                        >
                         </Item>)
                     }   
                             

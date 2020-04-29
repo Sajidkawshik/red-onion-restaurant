@@ -3,7 +3,7 @@ import './Item.css'
 import { Link } from 'react-router-dom';
 import ItemDetails from '../ItemDetails/ItemDetails';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faShoppingCart, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
 //style={{width: "18rem"}}
 const Item = (props) => {
     
@@ -20,11 +20,15 @@ const Item = (props) => {
                         <p className="card-text">{description}</p>
                         <p className="card-text">{price}</p>
                         <p className="card-text">{id}</p>
+                        <button onClick ={()=>props.handleMinusItem(props.item)}><FontAwesomeIcon icon={faMinus}/></button>                        
                         <button 
                             className="main-button"
                             onClick ={()=>props.handleAddItem(props.item)}
                             ><FontAwesomeIcon icon={faShoppingCart} /> Add to cart
                         </button>
+                        <button onClick ={()=>props.handleAddItem(props.item)}><FontAwesomeIcon icon={faPlus}/></button>
+                        
+                        
                     </div>
                 </div>
             
