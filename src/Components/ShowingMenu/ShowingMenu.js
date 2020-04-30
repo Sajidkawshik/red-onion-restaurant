@@ -32,7 +32,7 @@ const ShowingMenu = () => {
         let defaultMenu = menu.filter(items=>items.category==="breakfast");
         setItems(defaultMenu);
 
-    }, [])
+    },[])
 
 
     const handleAddProduct = (item) => {
@@ -66,8 +66,10 @@ const ShowingMenu = () => {
         if(tobeMinusIdItem){
             if(tobeMinusIdItem.quantity===1)
             {
+                tobeMinusIdItem.quantity=0;
                 newCart = cart.filter(pd => pd.id !== tobeMinusId);    
                 removeFromDatabaseCart(tobeMinusId);
+                
             }
             
             else if(tobeMinusIdItem.quantity>0){
@@ -79,6 +81,7 @@ const ShowingMenu = () => {
             }
             setCart(newCart);
         }
+      
         
 
     }
@@ -93,17 +96,13 @@ const ShowingMenu = () => {
             </div>
 
             <div className="row">
+                    
                     {                       
                         item.map(items=><Item
                         key={items.id}
-                        id={items.id}
-                        name={items.name}
-                        description={items.description}
-                        price={items.price}
-                        image={items.image}
                         item={items}
                         handleAddItem={handleAddProduct}
-                        handleMinusItem={handleMinusProduct}
+                        handleMinusItem={handleMinusProduct}                        
                         >
                         </Item>)
                     }   

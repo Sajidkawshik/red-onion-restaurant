@@ -7,6 +7,7 @@ const menu = [
         "price" : "150 ",
         "category" : "breakfast",
         "image" : "https://i.ibb.co/qrSChqB/breakfast1.png"
+		
        
     },
 
