@@ -19,9 +19,12 @@ const ItemDetails = () => {
                 <p>Item details coming soon...</p>
                 <p>{it.name}</p>
                 <p>{it.price}</p>
-                <a href="#" className="btn btn-success">Add to cart</a>
+               
                 
             </div>
+
+            <a href="/menu">Back to menu</a>
+           
         </div>
     );
 };

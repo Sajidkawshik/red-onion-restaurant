@@ -15,38 +15,47 @@ import Dinner from './Components/Dinner/Dinner';
 import ItemDetails from './Components/ItemDetails/ItemDetails';
 import ReviewOrderBtn from './Components/ReviewOrderBtn/ReviewOrderBtn';
 import Review from './Components/Review/Review';
+import Login from './Components/Login/Login';
+import { AuthContextProvider, PrivateRoute } from './Components/Login/useAuth';
+import Delivery from './Components/Delivery/Delivery';
 
 function App() {
   return (
     <div>
-      <Header></Header>  
-      <SearchBanner></SearchBanner>
-      
+      <AuthContextProvider>
+        <Header></Header>
+        <SearchBanner></SearchBanner>
 
-      <Router>
-        <Switch>
-          <Route path="/menu">
-            <ShowingMenu></ShowingMenu>
-            
-          </Route>
+        <Router>
+          <Switch>
+            <Route path="/menu">
+              <ShowingMenu></ShowingMenu>
 
-          <Route exact path="/">
+            </Route>
+
+            <Route exact path="/">
               <ShowingMenu></ShowingMenu>
             </Route>
 
-          <Route path="/review">
+            <Route path="/review">
               <Review></Review>
-          </Route>
+            </Route>
 
-          <Route path="/:id">
+            <Route path="/item/:id">
               <ItemDetails></ItemDetails>
-          </Route>
+            </Route>
 
-         
+            <Route path="/login">
+              <Login></Login>
+            </Route>
 
-        </Switch>
-      </Router>
+            <PrivateRoute path="/delivery">
+              <Delivery></Delivery>
+            </PrivateRoute>
 
+          </Switch>
+        </Router>
+      </AuthContextProvider>
     </div>
   );
 }

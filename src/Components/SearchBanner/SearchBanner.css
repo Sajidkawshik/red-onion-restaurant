@@ -24,3 +24,28 @@
 
 }
 
+.searchBanner input{
+    position: absolute;
+    left: 35%;
+    top: 40%;
+    width: 30%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    font-weight: bold;
+}
+
+.searchBanner button{
+    position: absolute;
+    left: 65%;
+    top: 40%;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(10, 65, 57);
+    color: white;
+}

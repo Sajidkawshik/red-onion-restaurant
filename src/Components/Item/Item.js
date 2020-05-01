@@ -16,7 +16,7 @@ const Item = (props) => {
         <div className="col-lg-4 content">
            
                 <div className="card border border-0">
-                     <Link to={"/"+id}>
+                     <Link to={"/item/"+id}>
                         <img src={image} alt="" />
                     </Link>
                     <div className="card-body">
