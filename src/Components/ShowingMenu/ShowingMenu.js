@@ -9,8 +9,15 @@ const ShowingMenu = () => {
     
     const[item, setItems] = useState([]);
     const [cart, setCart] = useState([]);
+    const[menu, setMenu] = useState([]); 
 
-    
+    useEffect(()=>{
+        fetch('http://localhost:3001/items')
+        .then(res => res.json())
+        .then(data=>{            
+            setMenu(data);
+        })
+    },[])
 
     const menuShow=(option)=>{
         console.log(option);
@@ -23,6 +30,7 @@ const ShowingMenu = () => {
 
         const savedCart = getDatabaseCart();
         const productIds = Object.keys(savedCart);
+       if(menu.length){
         const previousCart = productIds.map(existingId=>{
             const product = menu.find(pd=> pd.id === existingId);
             product.quantity = savedCart[existingId];
@@ -31,8 +39,9 @@ const ShowingMenu = () => {
         setCart(previousCart);
         let defaultMenu = menu.filter(items=>items.category==="breakfast");
         setItems(defaultMenu);
+       }
 
-    },[])
+    },[menu])
 
 
     const handleAddProduct = (item) => {

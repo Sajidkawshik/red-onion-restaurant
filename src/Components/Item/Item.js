@@ -5,7 +5,7 @@ import ItemDetails from '../ItemDetails/ItemDetails';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
 import { addToDatabaseCart, getDatabaseCart,removeFromDatabaseCart } from '../../utilities/databaseManager';
-import menu from '../../menu';
+
 //style={{width: "18rem"}}
 const Item = (props) => {
     
